@@ -1,6 +1,6 @@
 module github.com/cattyman919/autocv
 
-go 1.25.7
+go 1.26
 
 require (
 	github.com/gdamore/encoding v1.0.1 // indirect
