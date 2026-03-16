@@ -46,7 +46,7 @@
     - go
     - custom
     - shuting
-  description: "A dynamic CV generator that builds multiple tailored PDF resumes from a modular YAML data source using **Go** and **LaTeX**."
+  description: "A dynamic CV generator that builds multiple tailored PDF resumes from a modular YAML data source using **Go** and **Typst**."
   points:
     - "Streamlined CV creation by developing a tool that generates **multiple customized PDF versions** from a modular data source split across three YAML files (`general`, `experiences`, `projects`), eliminating repetitive manual editing."
     - "Engineered a **concurrent build process** using **Go's goroutines and waitgroups**, significantly cutting down generation time for multiple CVs."
