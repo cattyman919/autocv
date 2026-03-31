@@ -1,26 +1,14 @@
-#import "../template/template.typ": *
-#import "./config/personal_info.typ": *
-#import "./cv_type/section.typ"
-#import "./cv_type/cv_type.typ"
-
-// 1. Get the target CV type from CLI inputs (defaults to "default")
-#let target-type = sys.inputs.at("type", default: "default")
-
-// 2. Fetch the specific configuration from the map we created in Step 1
-#let selected-cv = cv_type.cv-map.at(
-  target-type,
-  default: cv_type.default
-)
-
+#import "/template/template.typ": *
+#import "sections.typ"
 
 #show: resume.with(
-  author: name,
-  location: location,
-  email: email,
-  github: github,
-  linkedin: linkedin,
-  phone: phone,
-  personal-site: personal-site,
+  author: "<< .General.PersonalInfo.Name >>",
+  location: "<< .General.PersonalInfo.Location >>",
+  email: "<< .General.PersonalInfo.Email >>",
+  github: "<< .General.PersonalInfo.GithubHandle >>",
+  linkedin: "<< .General.PersonalInfo.LinkedinHandle >>",
+  phone: "<< .General.PersonalInfo.Phone >>",
+  personal-site: "<< .General.PersonalInfo.Website >>",
   accent-color: "#26428b",
   font: "New Computer Modern",
   paper: "us-letter",
@@ -28,7 +16,21 @@
   personal-info-position: center,
 )
 
-// 3. Render the layout defined in the selected CV
-#for sec in selected-cv.layout {
-  [#sec]
-}
+// Dynamically render the document layout using Go's context
+<<- range .Layouts >>
+  <<- if eq . "experiences" >>
+    #sections.experiences
+  <<- else if eq . "educations" >>
+    #sections.educations
+  <<- else if eq . "projects" >>
+    #sections.projects
+  <<- else if eq . "skills" >>
+    #sections.skills
+  <<- else if eq . "certificates" >>
+    #sections.certificates
+  <<- else if eq . "awards" >>
+    #sections.awards
+  <<- else if eq . "research_interests" >>
+    #sections.research-interests
+  <<- end >>
+<<- end >>

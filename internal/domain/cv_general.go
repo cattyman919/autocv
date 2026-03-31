@@ -34,19 +34,16 @@ type Certificate struct {
 	Year string `yaml:"year"`
 }
 
-type SkillsAchievements struct {
-	HardSkills           []string      `yaml:"Hard Skills"`
-	SoftSkills           []string      `yaml:"Soft Skills"`
-	ProgrammingLanguages []string      `yaml:"Programming Languages"`
-	DatabaseLanguages    []string      `yaml:"Database Languages"`
-	Misc                 []string      `yaml:"Misc"`
-	Certificates         []Certificate `yaml:"Certificates"`
+type SkillGroup struct {
+	Title string   `yaml:"title"`
+	Items []string `yaml:"items"`
 }
 
 type CV_General struct {
-	PersonalInfo       PersonalInfo       `yaml:"personal_info"`
-	ResearchInterests  []string           `yaml:"research_interests"`
-	SkillsAchievements SkillsAchievements `yaml:"skills_achievements"`
-	Education          []Education        `yaml:"education"`
-	Awards             []Award            `yaml:"awards"`
+	PersonalInfo      PersonalInfo  `yaml:"personal_info"`
+	ResearchInterests []string      `yaml:"research_interests"`
+	Skills            []SkillGroup  `yaml:"skills"`
+	Certifications    []Certificate `yaml:"certificates"`
+	Educations        []Education   `yaml:"education"`
+	Awards            []Award       `yaml:"awards"`
 }

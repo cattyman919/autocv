@@ -1,3 +1,10 @@
+# Layout:
+# - experiences
+# - educations
+# - skills
+# - certificates
+# - awards
+
 layout:
   - experiences
   - educations

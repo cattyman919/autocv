@@ -23,62 +23,70 @@ research_interests:
   - Mobile Commerce Systems and Application Development
   - Software Reliability and Performance Engineering
 
-skills_achievements:
-  "Hard Skills":
-    - Database Systems
-    - Web Development
-    - Fullstack Engineer
-    - Networking
-    - Internet of Things
-    - Machine Learning
-  "Soft Skills":
-    - Teamwork
-    - Communication
-    - Adaptability
-    - Responsibility
-    - Creativity
-    - Discipline
-    - Honesty
-  "Programming Languages":
-    - C
-    - "C#"
-    - C++
-    - Go
-    - Javascript
-    - HTML
-    - CSS
-    - Python
-    - Typescript
-    - Java
-    - PHP
-    - Dart
-    - Rust
-  "Database Languages":
-    - PostgreSQL
-    - MySQL
-    - NoSQL
-  Misc:
-    - React
-    - NestJS
-    - NextJS
-    - Flutter
-    - Spring Boot
-    - ExpressJs
-    - Docker
-    - Tailwind CSS
-    - Git
-    - Linux
-  Certificates:
-    - year: "2025"
-      name: "Red Hat System Administration I & II (RH134 - RHA) - Ver. 9.3"
-    # - year: "2024"
-    #   name: "AWS Knowledge: Cloud Essentials"
-    - year: "2023"
-      name: "CCNA: Enterprise Networking, Security, and Automation"
-    - year: "2023"
-      name: "CCNA: Switching, Routing, and Wireless Essentials"
-    - year: "2023"
-      name: "CCNA: Introduction to Networks"
+skills:
+  - title: "Hard Skill"
+    items:
+      - Database Systems
+      - Web Development
+      - Fullstack Engineer
+      - Networking
+      - Internet of Things
+      - Machine Learning
+
+  - title: "Soft Skills"
+    items:
+      - Teamwork
+      - Communication
+      - Adaptability
+      - Responsibility
+      - Creativity
+      - Discipline
+      - Honesty
+
+  - title: "Programming Languages"
+    items:
+      - C
+      - "C#"
+      - C++
+      - Go
+      - Javascript
+      - HTML
+      - CSS
+      - Python
+      - Typescript
+      - Java
+      - PHP
+      - Dart
+      - Rust
+  - title: "Database Languages"
+    items:
+      - PostgreSQL
+      - MySQL
+      - NoSQL
+  - title: Misc
+    items:
+      - React
+      - NestJS
+      - NextJS
+      - Flutter
+      - Spring Boot
+      - ExpressJs
+      - Docker
+      - Tailwind CSS
+      - Git
+      - Linux
+
+certificates:
+  - year: "2025"
+    name: "Red Hat System Administration I & II (RH134 - RHA) - Ver. 9.3"
+  # - year: "2024"
+  #   name: "AWS Knowledge: Cloud Essentials"
+  - year: "2023"
+    name: "CCNA: Enterprise Networking, Security, and Automation"
+  - year: "2023"
+    name: "CCNA: Switching, Routing, and Wireless Essentials"
+  - year: "2023"
+    name: "CCNA: Introduction to Networks"
 
 education:
   - institution: Universitas Indonesia

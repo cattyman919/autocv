@@ -5,6 +5,7 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
+	"strings"
 	"sync"
 
 	"github.com/cattyman919/autocv/internal/domain"
@@ -69,7 +70,7 @@ func parseConfigs() (*CVConfig, error) {
 			}
 
 			cvTypeCfg := domain.CVType{
-				Type: cvType.Name(),
+				Type: strings.TrimSuffix(cvType.Name(), ".yaml"),
 			}
 
 			if err := yaml.Unmarshal(cvTypeBytes, &cvTypeCfg); err != nil {
@@ -91,11 +92,12 @@ func parseConfigs() (*CVConfig, error) {
 		close(resultChan)
 	}()
 
-	cvTypesCfg := make([]domain.CVType, len(dirCvTypes))
+	cvTypesCfg := make([]domain.CVType, 0, len(dirCvTypes))
 	for res := range resultChan {
 		if res.err != nil {
 			return nil, res.err
 		}
+
 		cvTypesCfg = append(cvTypesCfg, res.cvType)
 	}
 
