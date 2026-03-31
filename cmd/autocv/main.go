@@ -1,8 +1,12 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"log/slog"
+	"sync"
+
+	"github.com/cattyman919/autocv/internal/domain"
+	"github.com/cattyman919/autocv/internal/generator"
 )
 
 func main() {
@@ -11,5 +15,24 @@ func main() {
 		slog.Error("Error Parsing Config", "Err", err)
 	}
 
-	fmt.Println(cvCfg.generalCfg)
+	tmpl, err := generator.NewTemplate()
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	var wg sync.WaitGroup
+
+	for _, cvType := range cvCfg.cvTypesCfg {
+		cvData := domain.CVData{
+			General: &cvCfg.generalCfg,
+			CVType:  cvType,
+		}
+
+		wg.Go(func() {
+			generator.Write_CV(&cvData, tmpl)
+		})
+
+	}
+
+	wg.Wait()
 }

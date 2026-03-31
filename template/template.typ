@@ -297,20 +297,19 @@
 //   )
 // }
 
-#let certificates(
+#let certificate(
   name: "",
   issuer: "",
   url: "",
   date: "",
-) = {
-  [
-    *#name*, #issuer
-    #if url != "" {
-      [ (#link("https://" + url)[#url])]
-    }
-    #h(1fr) #date
-  ]
-}
+) = [
+
+  *#name*, #issuer
+  #if url != "" {
+    [ (#link("https://" + url)[#url])]
+  }
+  #h(1fr) #date
+]
 
 #let extracurriculars(
   activity: "",

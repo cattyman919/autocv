@@ -29,6 +29,6 @@ type Project struct {
 type CVType struct {
 	Type        string
 	Layouts     []Layout     `yaml:"layout"`
-	Projects    []Project    `yaml:"experiences"`
-	Experiences []Experience `yaml:"projects"`
+	Projects    []Project    `yaml:"projects"`
+	Experiences []Experience `yaml:"experiences"`
 }
