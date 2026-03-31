@@ -23,13 +23,20 @@ func main() {
 	var wg sync.WaitGroup
 
 	for _, cvType := range cvCfg.cvTypesCfg {
-		cvData := domain.CVData{
+		cvData := domain.CVTypeData{
 			General: &cvCfg.generalCfg,
 			CVType:  cvType,
 		}
 
 		wg.Go(func() {
-			generator.Write_CV(&cvData, tmpl)
+			err := generator.GenerateCVType(&cvData, tmpl)
+			if err != nil {
+				slog.Error("Error generating CV Type", "err", err)
+			}
+			err = generator.GeneratePDF(&cvData)
+			if err != nil {
+				slog.Error("Error generating PDF CV Type", "err", err)
+			}
 		})
 
 	}

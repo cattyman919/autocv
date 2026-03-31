@@ -16,7 +16,7 @@ const (
 	FOLDER_PERMISSION = 0755
 )
 
-func Write_CV(cvData *domain.CVData, tmpl *template.Template) error {
+func GenerateCVType(cvData *domain.CVTypeData, tmpl *template.Template) error {
 
 	log.Printf("Generating CV (%s)\n", cvData.Type)
 
@@ -54,45 +54,38 @@ func Write_CV(cvData *domain.CVData, tmpl *template.Template) error {
 		}
 
 		file.Close()
-
-		log.Printf("Generated: %s\n", outputPath)
 	}
 
-	// err := write_PDF(&cvType, &cvData.General.PersonalInfo.Name)
-	// if err != nil {
-	// 	return fmt.Errorf("Failed to create CV [%s]: %w", cvType, err)
-	// }
 	return nil
 }
 
-// Runs the 'pdflatex' external command
-func write_PDF(cvType *string, name *string) error {
+func GeneratePDF(cvData *domain.CVTypeData) error {
 
-	target_pdf := fmt.Sprintf("%s - CV (%s)", *name, *cvType)
+	targetPDF := fmt.Sprintf("%s - CV (%s).pdf", cvData.General.PersonalInfo.Name, cvData.Type)
 
-	program := "pdflatex"
+	cvPath := filepath.Join("build_cv", cvData.Type, "main.typ")
+	outputPath := filepath.Join("out", targetPDF)
+
+	program := "typst"
 	args := []string{
-		"-output-directory=../../../out",
-		"-output-format=pdf",
-		"-jobname",
-		target_pdf,
-		"main.tex",
+		"compile",
+		cvPath,
+		"--root",
+		".",
+		outputPath,
 	}
 
 	cmd := exec.Command(program, args...)
-	cmd.Dir = fmt.Sprintf("build_cv/%s/bw_cv", *cvType)
 
-	// if DebugMode {
-	// 	cmd.Stdout = os.Stdout
-	// 	cmd.Stderr = os.Stderr
-	// }
-
-	log.Printf("Generating CV %s.pdf\n", target_pdf)
+	// DEBUG
+	// cmd.Stdout = os.Stdout
+	// cmd.Stderr = os.Stderr
 
 	if err := cmd.Run(); err != nil {
-		return fmt.Errorf("Failed to execute 'pdflatex': %w", err)
+		return fmt.Errorf("Failed to execute '%s': %w", program, err)
 	}
 
-	log.Printf("Generated CV %s.pdf\n", target_pdf)
+	log.Printf("Generated CV %s.pdf\n", targetPDF)
+
 	return nil
 }
