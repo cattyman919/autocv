@@ -13,16 +13,6 @@
   ]
 }
 
-#let headers = (
-  "<< .General.PersonalInfo.Name >>",
-  "<< .General.PersonalInfo.Location >>",
-  "<< .General.PersonalInfo.Email >>",
-  "<< .General.PersonalInfo.Phone >>",
-  "<< .General.PersonalInfo.GithubHandle >>",
-  "<< .General.PersonalInfo.LinkedinHandle >>",
-  "<< .General.PersonalInfo.Website >>",
-)
-
 #let projects = [
   == Projects
   <<- range .Projects >>
@@ -83,7 +73,7 @@
 #let research-interests = [
   == Research Interests
   <<- range .General.ResearchInterests >>
-  - [<< . >>]
+  - << . >>
   <<- end >>
 ]
 
