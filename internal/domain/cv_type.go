@@ -8,6 +8,7 @@ const (
 	LayoutSkills       Layout = "skills"
 	LayoutCertificates Layout = "certificates"
 	LayoutAwards       Layout = "awards"
+	LayoutProjects     Layout = "projects"
 )
 
 type Experience struct {

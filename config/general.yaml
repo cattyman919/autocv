@@ -3,11 +3,10 @@ personal_info:
   location: Tangerang Selatan
   email: senop.rahman@gmail.com
   phone: "[REDACTED_PHONE_NUMBER]"
-  website: https://senop.dev
-  linkedin: https://www.linkedin.com/in/seno-pamungkas-rahman-714341192/
+  website: senop.dev
+  linkedin: seno-pamungkas-rahman-714341192
   linkedin_handle: Seno
-  github: https://github.com/cattyman919
-  github_handle: cattyman919
+  github: cattyman919
   profile_pic: profile.jpg
 
 research_interests:
