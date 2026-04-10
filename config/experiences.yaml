@@ -41,21 +41,21 @@
     # - "**Created** a **Grafana health-check automator** that validates **Prometheus datasource connectivity** via the **Grafana API**, ensuring high availability of observability dashboards for critical Telco applications."
 
     # 5. Database Performance - From "Assessment RDS MyXL" logs
-    - "**Conducted deep-dive performance assessments** on **AWS RDS**, identifying bottlenecks and recommending **composite indexing strategies** that optimized query execution for high-volume transaction tables."
+    # - "**Conducted deep-dive performance assessments** on **AWS RDS**, identifying bottlenecks and recommending **composite indexing strategies** that optimized query execution for high-volume transaction tables."
 
     # 6. MS Graph Integration - From 'weekly_resource' Excel upload code
     - "**Integrated internal audit tools** with **Microsoft Graph API** to automatically generate and upload formatted **Excel reports** to SharePoint, eliminating manual data entry for weekly capacity reviews."
     # --- Operational Excellence & Automation ---
     - "**Streamlined** operational reporting workflows by **automating data collection** from disparate cloud sources (AWS, GCP, K8s), significantly **reducing administrative overhead** for the Cloud Operations team."
-    - "**Refactored** legacy automation scripts into modular **Go packages**, improving **code maintainability**, error handling, and enabling easier collaboration within the engineering team."
-    - "**Orchestrated** the periodic patching and upgrade cycles for **EKS node groups**, ensuring compliance with **security standards** by migrating workloads from **Amazon Linux 2 to AL3**."
+    # - "**Refactored** legacy automation scripts into modular **Go packages**, improving **code maintainability**, error handling, and enabling easier collaboration within the engineering team."
+    # - "**Orchestrated** the periodic patching and upgrade cycles for **EKS node groups**, ensuring compliance with **security standards** by migrating workloads from **Amazon Linux 2 to AL3**."
 
     # --- Cloud Security & Governance ---
     # - "**Enhanced cloud security posture** by developing custom audit tools to detect exposed **Security Groups**, unencrypted **EBS volumes**, and **WAF** misconfigurations across a multi-account environment."
     # - "**Strengthened** access control mechanisms by implementing **AssumeRole** patterns in automation tools, removing the need for static long-lived credentials in scripts."
 
     # --- Cost Optimization ---
-    - "**Led cost-optimization initiatives** by building automated scanners to identify **underutilized EC2 instances** and detached **EBS volumes**, facilitating data-driven resource rightsizing decisions."
+    # - "**Led cost-optimization initiatives** by building automated scanners to identify **underutilized EC2 instances** and detached **EBS volumes**, facilitating data-driven resource rightsizing decisions."
 
     # --- Kubernetes & Infrastructure Management ---
     # - "**Managed and maintained** Kubernetes infrastructure health, ensuring configuration consistency between **Blue/Green environments** via **ArgoCD** and **Rancher**."
@@ -178,7 +178,6 @@
   dates: September 2022 - October 2022
   job_type: Internship
   cv_type:
-    - devops
     - iot
     # - main
     - fullstack
