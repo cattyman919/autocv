@@ -248,7 +248,11 @@
 ) = [
   #generic-one-by-two(
     left: strong(title),
-    right: url-handle
+    right: if url != "" {
+      link(url)[#fa-external-link() #h(3pt) #url-handle]
+    } else {
+      url-handle
+    }
   )
   #description
   #for point in points [

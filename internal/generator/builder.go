@@ -78,8 +78,8 @@ func GeneratePDF(cvData *domain.CVTypeData) error {
 	cmd := exec.Command(program, args...)
 
 	// DEBUG
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
+	// cmd.Stdout = os.Stdout
+	// cmd.Stderr = os.Stderr
 
 	if err := cmd.Run(); err != nil {
 		return fmt.Errorf("Failed to execute '%s': %w", program, err)
