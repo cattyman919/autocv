@@ -28,6 +28,7 @@
   github_handle: sxyazi/yazi
   cv_type:
     - main
+    - devops
     - rust
     - cyber
     - database
@@ -42,7 +43,6 @@
   github: https://github.com/cattyman919/resume
   github_handle: cattyman919/resume
   cv_type:
-    - devops
     - go
     - custom
     - shuting
@@ -92,7 +92,6 @@
   cv_type:
     - iot
     - fullstack
-    - devops
   description: "An attendance system using FreeRTOS ESP32 and RFID, with a web server and Blynk integration for class and schedule management."
   points:
     - "Led the end-to-end development of the DanceRTOS attendance system, building both the **Flutter frontend** and **NestJS backend**."
@@ -158,7 +157,6 @@
   github: https://github.com/cattyman919/http
   github_handle: cattyman919/http
   cv_type:
-    - devops
   description: "A custom HTTP server written in C that leverages low-level socket programming and polling to handle multiple client connections. It features dynamic routing via a binary search tree and simple HTTP parsing for flexible response handling."
   points:
     - "Engineered a **non-blocking, polling-based socket server** in **C** to handle multiple concurrent client connections efficiently."
