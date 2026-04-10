@@ -1,4 +1,5 @@
 #import "@preview/scienceicons:0.1.0": orcid-icon
+#import "@preview/fontawesome:0.5.0": *
 
 #let resume(
   author: "",
@@ -9,6 +10,7 @@
   email: "",
   github: "",
   linkedin: "",
+  linkedin_handle: "",
   phone: "",
   personal-site: "",
   orcid: "",
@@ -55,6 +57,7 @@
     fill: rgb(accent-color),
   )
 
+  // Disable Blue link
   show link: set text(
     fill: rgb(accent-color),
   )
@@ -73,13 +76,24 @@
   [= #(author)]
 
   // Personal Info Helper
-  let contact-item(value, prefix: "", link-type: "") = {
-    if value != "" {
-      if link-type != "" {
-        link(link-type + value)[#(prefix + value)]
-      } else {
-        value
-      }
+  let contact-item(value, prefix: "", link-type: "", handle: "") = {
+    if value == "" { return none }
+
+    // Determine what text to actually display
+    let display-text = if handle != "" { handle } else { value }
+
+    // Create the content with the icon prefix
+    let content = if prefix != "" {
+      prefix + "  " + display-text
+    } else {
+      display-text
+    }
+
+    // Return as a link or plain content
+    if link-type != "" {
+      return link(link-type + value)[#content]
+    } else {
+      return content
     }
   }
 
@@ -92,11 +106,11 @@
           contact-item(pronouns),
           contact-item(phone),
           contact-item(location),
-          contact-item(email, link-type: "mailto:"),
-          contact-item(github, link-type: "https://"),
-          contact-item(linkedin, link-type: "https://"),
+          contact-item(email, prefix: fa-envelope(), link-type: "mailto:"),
+          contact-item(github, prefix: fa-github(), link-type: "https://github.com/"),
+          contact-item(linkedin, prefix: fa-linkedin(),  link-type: "https://www.linkedin.com/in/", handle: linkedin_handle),
           contact-item(personal-site, link-type: "https://"),
-          contact-item(orcid, prefix: [#orcid-icon(color: rgb("#AECD54"))orcid.org/], link-type: "https://orcid.org/"),
+          // contact-item(orcid, prefix: [#orcid-icon(color: rgb("#AECD54"))orcid.org/], link-type: "https://orcid.org/"),
         )
         items.filter(x => x != none).join("  |  ")
       }
@@ -236,7 +250,6 @@
     left: strong(title),
     right: url-handle
   )
-
   #description
   #for point in points [
     - #point
