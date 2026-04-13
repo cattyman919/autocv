@@ -1,30 +1,40 @@
-FROM alpine:3.23
+# Stage 1: Build the Go binary
+FROM golang:1.26-bookworm AS builder
 
-# 1. Define the exact Go version you want
-ENV GOLANG_VERSION=1.26.1
+WORKDIR /app
+COPY go.mod ./
+# COPY go.sum ./
+RUN go mod download
+COPY . .
+RUN go build -o /autocv ./cmd/autocv/main.go ./cmd/autocv/config.go
 
-# 2. Install dependencies for downloading and extracting Go, plus Git
-RUN apk add --no-cache curl git tar typst gcompat
+# Stage 2: Final Runtime Image
+FROM debian:trixie-slim
 
-# 3. Download the specific Go binary and extract it to /usr/local
-# (Note: This assumes an amd64 architecture. Change to arm64 if using Apple Silicon/ARM)
-RUN curl -L -o go.tar.gz "https://golang.org/dl/go${GOLANG_VERSION}.linux-amd64.tar.gz" && \
-    tar -C /usr/local -xzf go.tar.gz && \
-    rm go.tar.gz
+# 1. Install dependencies for downloading and SSL
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates \
+    curl \
+    xz-utils \
+    && rm -rf /var/lib/apt/lists/*
 
-ENV GOPATH=/go
-ENV GOMODCACHE=/go/pkg/mod
-ENV GOCACHE=/root/.cache/go-build
-ENV PATH=$PATH:/go/bin
+# 2. Install Typst binary directly from GitHub
+# We'll use version 0.12.0 as a stable target
+ENV TYPST_VERSION=0.12.0
+RUN curl -L -o typst.tar.xz "https://github.com/typst/typst/releases/download/v${TYPST_VERSION}/typst-x86_64-unknown-linux-musl.tar.xz" && \
+    tar -xJf typst.tar.xz && \
+    cp typst-x86_64-unknown-linux-musl/typst /usr/local/bin/typst && \
+    rm -rf typst.tar.xz typst-x86_64-unknown-linux-musl
 
 WORKDIR /app
 
-COPY go.mod go.sum ./
+# Copy the binary and assets
+COPY --from=builder /autocv .
+COPY config/ ./config/
+COPY src/ ./src/
+COPY template/ ./template/
+COPY images/ ./images/
 
-RUN --mount=type=cache,target=/go/pkg/mod \
-    go mod download
+RUN mkdir -p out
 
-COPY . .
-
-ENTRYPOINT ["go", "run", "./cmd/autocv/"]
-# ENTRYPOINT ["sh", "-c", "go run main.go"]
+ENTRYPOINT ["./autocv"]
