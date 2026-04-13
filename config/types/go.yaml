@@ -1,0 +1,87 @@
+layout:
+  - experiences
+  - educations
+  - skills
+  - certificates
+  - awards
+
+experiences:
+  - company: XLSmart
+    location: Jakarta Selatan
+    role: Platform Engineer
+    dates: September 2025 - Present
+    job_type: Contract
+    points:
+      - "**Engineered** a high-concurrency **Go** tool to automate weekly End-of-Support (EOS) and capacity reporting across **~100 AWS accounts** and **~100 GCP projects**, **slashing manual report generation time from 45 minutes to under 3 minutes**."
+      - "**Built** a **Go** utility to **audit Kubernetes clusters** at scale, querying **EKS clusters** to gather **PodDisruptionBudget (PDB)** and **HPA** data for cross-team resilience analysis."
+      - "**Engineered** an automated **AMI compliance scanner** in **Go** to track **Amazon Linux 2 to 2023 migration** progress across **Karpenter** nodepools and **EKS Managed Node Groups** in **50+ AWS accounts**."
+      - "**Developed** 'Kluster-Compare', a **full-stack internal tool** (**Go** backend, **Next.js** frontend) to visualize and **diff Kubernetes manifests** between live clusters (**Rancher**) and GitOps states (**ArgoCD**)."
+      - "**Refactored** legacy automation scripts into modular **Go packages**, improving **code maintainability**, error handling, and enabling easier collaboration within the engineering team."
+
+  - company: Superbank
+    location: Jakarta Selatan
+    role: Technical Support
+    dates: December 2024 - June 2025
+    job_type: Internship
+    points:
+      - "**Managed end-to-end deployment** of vendor-provided scripts across **AWS EC2** (Dev/Staging) via **S3 bucket integration**, **WinSCP** file transfers, and **XML configuration adjustments**."
+      - "**Automated deployment workflows** by developing a **PowerShell script** to extract ZIP files and **configuration for deployment processes**, **reducing manual effort by 40%** and accelerating deployment cycles."
+      - "**Resolved production incidents** (e.g., CPU spikes, SQL query bottlenecks) by acting as a technical liaison, **analyzing root causes**, and **escalating issues** via **Jira tickets** to cross-functional teams."
+
+  - company: PT XL Axiata Tbk
+    location: Jakarta Selatan
+    role: "Fixed Connectivity, ICT & Cloud"
+    dates: February 2024 - June 2024
+    job_type: Internship
+    points:
+      - "Conducted **comprehensive market research** and **data scraping** using **Python**, **BeautifulSoup**, and **Pandas** to identify **growth opportunities** and assess the competitive landscape for satellite products."
+      - "Collaborated closely with **cross-functional teams** to ensure timely completion of tasks and seamless **integration of research insights** into project outcomes."
+
+  - company: PT Bank Victoria International
+    location: Jakarta Selatan
+    role: Fullstack Web Developer
+    dates: September 2023 - November 2023
+    job_type: Internship
+    points:
+      - "Developed **dynamic journal booking tables** on the frontend with **Flutter**, integrating advanced **filtering** (by date and booking type), **pagination**, and **soft deletion** functionalities."
+      - "**Integrated the Flutter frontend with backend APIs built in NestJS** and maintained data consistency with **MySQL**, ensuring accurate real-time accounting records."
+
+  - company: MileApp
+    location: Jakarta Barat
+    role: Frontend Web Developer
+    dates: September 2022 - October 2022
+    job_type: Internship
+    points:
+      - "**Rebuilt and redesigned** critical web pages (**landing, login, and registration**) from scratch using **React** and **styled-components**, contributing to a major UI overhaul."
+
+  - company: Furaha System
+    location: Tangerang Selatan
+    role: Frontend Web Developer
+    dates: February 2021 - October 2022
+    job_type: Part-time
+    points:
+      - "Engineered **complex exam pages** for a comprehensive E-Learning platform using **Next.js**, incorporating **navigation bars**, **dynamic question-sidebars**, and **real-time answer tracking**."
+
+projects:
+  - name: AutoCV
+    github: https://github.com/cattyman919/resume
+    github_handle: cattyman919/resume
+    description: "A dynamic CV generator that builds multiple tailored PDF resumes from a modular YAML data source using **Go** and **Typst**."
+    points:
+      - "Streamlined CV creation by developing a tool that generates **multiple customized PDF versions** from a modular data source."
+      - "Engineered a **concurrent build process** using **Go's goroutines and waitgroups**, significantly cutting down generation time for multiple CVs."
+
+  - name: MovieDB Showcase
+    github: https://github.com/cattyman919/movies
+    github_handle: cattyman919/movies
+    description: "A full-stack movie browsing application featuring a **Go** backend API that serves data from the TMDB API, and a modern **React** frontend."
+    points:
+      - "Architected a backend API using **Go** and the **Gin framework** to serve as a proxy for the TMDB API, handling requests for popular, top-rated, and upcoming movies."
+      - "Containerized the entire application (**Go backend, React frontend, MongoDB**) using **Docker** and **Docker Compose**, and wrote integration tests with **Testcontainers** for the database layer."
+
+  - name: Restomatic
+    github: https://github.com/SistemBasisData2023/RestoMatic
+    github_handle: SistemBasisData2023/RestoMatic
+    description: "A web platform for easy food and drink ordering. Users can browse restaurant menus, add funds, and leave ratings."
+    points:
+      - "Engineered a responsive and intuitive user interface with **React** and **Tailwind CSS**, leading the frontend development to enhance user engagement."
