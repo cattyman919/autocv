@@ -1,3 +1,7 @@
+settings:
+  font: "Charter"
+  # font: "New Computer Modern"
+
 personal_info:
   name: Seno Pamungkas Rahman
   location: Tangerang Selatan
@@ -23,6 +27,11 @@ research_interests:
   - Software Reliability and Performance Engineering
 
 skills:
+  - title: "Language"
+    items:
+      - Bahasa Indonesia (Native)
+      - English (IELTS 7.0)
+
   - title: "Hard Skill"
     items:
       - Database Systems
@@ -57,7 +66,7 @@ skills:
       - PHP
       - Dart
       - Rust
-  - title: "Database Languages"
+  - title: "Database"
     items:
       - PostgreSQL
       - MySQL

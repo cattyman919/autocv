@@ -39,7 +39,7 @@ type SkillGroup struct {
 	Items []string `yaml:"items"`
 }
 
-type CV_General struct {
+type CVGeneral struct {
 	PersonalInfo      PersonalInfo  `yaml:"personal_info"`
 	ResearchInterests []string      `yaml:"research_interests"`
 	Skills            []SkillGroup  `yaml:"skills"`

@@ -24,8 +24,9 @@ func main() {
 
 	for _, cvType := range cvCfg.cvTypesCfg {
 		cvData := domain.CVTypeData{
-			General: &cvCfg.generalCfg,
-			CVType:  cvType,
+			General:  &cvCfg.generalCfg,
+			Settings: &cvCfg.settingsCfg,
+			CVType:   cvType,
 		}
 
 		wg.Go(func() {
