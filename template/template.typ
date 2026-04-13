@@ -1,4 +1,3 @@
-#import "@preview/scienceicons:0.1.0": orcid-icon
 #import "@preview/fontawesome:0.5.0": *
 
 #let resume(
@@ -13,10 +12,10 @@
   linkedin_handle: "",
   phone: "",
   personal-site: "",
-  orcid: "",
   accent-color: "#000000",
   font: "New Computer Modern",
   paper: "us-letter",
+  heading-section-font-size: 14pt,
   author-font-size: 20pt,
   font-size: 10pt,
   lang: "en",
@@ -43,11 +42,15 @@
   )
 
   // Link styles
-  show link: underline
+  // show link: underline
 
 
   // Small caps for section titles
   show heading.where(level: 2): it => [
+    #set text(
+      weight: 900,
+      size: heading-section-font-size,
+    )
     #pad(top: 0pt, bottom: -10pt, [#smallcaps(it.body)])
     #line(length: 100%, stroke: 1pt)
   ]
@@ -58,15 +61,15 @@
   )
 
   // Disable Blue link
-  show link: set text(
-    fill: rgb(accent-color),
-  )
+  // show link: set text(
+  //   fill: rgb(accent-color),
+  // )
 
   // Name will be aligned left, bold and big
   show heading.where(level: 1): it => [
     #set align(author-position)
     #set text(
-      weight: 700,
+      weight: 900,
       size: author-font-size,
     )
     #pad(it.body)
@@ -97,20 +100,20 @@
     }
   }
 
+  let icon(path) = [#box(baseline: 20%, image(path, height: 1em))#h(-0.4em)]
+
   // Personal Info
   pad(
     top: 0.25em,
     align(personal-info-position)[
       #{
         let items = (
-          contact-item(pronouns),
-          contact-item(phone),
-          contact-item(location),
+          contact-item(phone, prefix: fa-phone()),
+          contact-item(location, prefix: icon("location.svg")),
           contact-item(email, prefix: fa-envelope(), link-type: "mailto:"),
           contact-item(github, prefix: fa-github(), link-type: "https://github.com/"),
           contact-item(linkedin, prefix: fa-linkedin(),  link-type: "https://www.linkedin.com/in/", handle: linkedin_handle),
-          contact-item(personal-site, link-type: "https://"),
-          // contact-item(orcid, prefix: [#orcid-icon(color: rgb("#AECD54"))orcid.org/], link-type: "https://orcid.org/"),
+          contact-item(personal-site, prefix:fa-link(), link-type: "https://"),
         )
         items.filter(x => x != none).join("  |  ")
       }
@@ -200,23 +203,9 @@
 }
 
 
-#let work(
-  title: "",
-  dates: "",
-  company: "",
-  location: "",
-) = {
-  generic-two-by-two(
-    top-left: strong(title),
-    top-right: dates,
-    bottom-left: company,
-    bottom-right: emph(location),
-  )
-}
-
 
 #let experience-title-helper(role, job-type) = {
-  strong(role) + " " + $dash.em$ + " " + job-type
+  strong(role) + " " + $dash.em$ + " " + strong(text(fill: luma(50%))[#job-type])
 }
 
 
@@ -231,7 +220,7 @@
   #generic-two-by-two(
     top-left: experience-title-helper(role, job-type),
     top-right: dates,
-    bottom-left: strong(company),
+    bottom-left: strong(emph(company)),
     bottom-right: location
   )
   #for point in points [
@@ -289,30 +278,6 @@
     #{item},
   ]
 ]
-
-// #let project(
-//   role: "",
-//   name: "",
-//   url: "",
-//   dates: "",
-// ) = {
-//   generic-one-by-two(
-//     left: {
-//       if role == "" {
-//         [*#name* #if url != "" and dates != "" [ (#link("https://" + url)[#url])]]
-//       } else {
-//         [*#role*, #name #if url != "" and dates != ""  [ (#link("https://" + url)[#url])]]
-//       }
-//     },
-//     right: {
-//       if dates == "" and url != "" {
-//         link("https://" + url)[#url]
-//       } else {
-//         dates
-//       }
-//     },
-//   )
-// }
 
 #let certificate(
   name: "",

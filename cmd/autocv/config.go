@@ -13,8 +13,9 @@ import (
 )
 
 type CVConfig struct {
-	generalCfg domain.CV_General
-	cvTypesCfg []domain.CVType
+	settingsCfg domain.CVSettings
+	generalCfg  domain.CVGeneral
+	cvTypesCfg  []domain.CVType
 }
 
 func parseConfigs() (*CVConfig, error) {
@@ -25,7 +26,10 @@ func parseConfigs() (*CVConfig, error) {
 	}
 
 	// General Config
-	var generalCfg domain.CV_General
+	var generalCfg domain.CVGeneral
+
+	// Settings Config
+	var settingsCfg domain.CVSettings
 
 	type ResultChan struct {
 		err    error
@@ -49,6 +53,25 @@ func parseConfigs() (*CVConfig, error) {
 		if err := yaml.Unmarshal(generalCfgBytes, &generalCfg); err != nil {
 			resultChan <- ResultChan{
 				err: fmt.Errorf("Failed to parse %s: %w", generalCfgPath, err),
+			}
+			return
+		}
+	})
+
+	// Read Settings Cfg
+	wg.Go(func() {
+		settingsCfgPath := filepath.Join(configPath, "settings.yaml")
+		settingsCfgBytes, err := os.ReadFile(settingsCfgPath)
+		if err != nil {
+			resultChan <- ResultChan{
+				err: fmt.Errorf("Failed to open %s: %w", settingsCfgPath, err),
+			}
+			return
+		}
+
+		if err := yaml.Unmarshal(settingsCfgBytes, &settingsCfg); err != nil {
+			resultChan <- ResultChan{
+				err: fmt.Errorf("Failed to parse %s: %w", settingsCfgPath, err),
 			}
 			return
 		}
@@ -104,7 +127,8 @@ func parseConfigs() (*CVConfig, error) {
 	slog.Info("Parse Config Success")
 
 	return &CVConfig{
-		generalCfg: generalCfg,
-		cvTypesCfg: cvTypesCfg,
+		settingsCfg: settingsCfg,
+		generalCfg:  generalCfg,
+		cvTypesCfg:  cvTypesCfg,
 	}, nil
 }
