@@ -60,7 +60,9 @@ experiences:
     dates: February 2021 - October 2022
     job_type: Part-time
     points:
-      - "Engineered *complex exam pages* for a comprehensive E-Learning platform using *Next.js*, incorporating *navigation bars*, *dynamic question-sidebars*, and *real-time answer tracking*."
+      - "Engineered *complex exam pages* for a comprehensive E-Learning platform using *React* & *Next.js*, incorporating *navigation bars*, *dynamic question-sidebars*, and *real-time answer tracking*."
+      - Acquired and applied expertise in React, HTML, CSS, and JavaScript to create and enhance web applications.
+      - Delivered project updates regularly, ensuring alignment with goals and maintaining effective communication with the team.
 
 projects:
   - name: AutoCV

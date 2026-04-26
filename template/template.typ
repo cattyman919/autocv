@@ -223,6 +223,9 @@
     bottom-left: strong(emph(company)),
     bottom-right: location
   )
+
+  #set list(spacing: 1.0em)
+
   #for point in points [
     - #point
   ]
@@ -244,6 +247,9 @@
     }
   )
   #description
+
+  #set list(spacing: 1.0em)
+
   #for point in points [
     - #point
   ]
@@ -279,19 +285,43 @@
   ]
 ]
 
+// #let certificate(
+//   name: "",
+//   issuer: "",
+//   url: "",
+//   date: "",
+// ) = [
+//   *#name*, #issuer
+//   #if url != "" {
+//     [ (#link("https://" + url)[#url])]
+//   }
+//   #if date != "" {
+//     [ $bullet$ #date ]
+//   }
+// ]
+
 #let certificate(
   name: "",
   issuer: "",
   url: "",
   date: "",
 ) = [
-
-  *#name*, #issuer
-  #if url != "" {
-    [ (#link("https://" + url)[#url])]
-  }
-  #h(1fr) #date
+  *(#date)* #name #if issuer != "" [, #issuer] #if url != "" [ (#link("https://" + url)[#url])]
 ]
+
+// #let certificate(
+//   name: "",
+//   issuer: "",
+//   url: "",
+//   date: "",
+// ) = [
+//
+//   *#name*, #issuer
+//   #if url != "" {
+//     [ (#link("https://" + url)[#url])]
+//   }
+//   #h(1fr) #date
+// ]
 
 #let extracurriculars(
   activity: "",

@@ -30,7 +30,7 @@ skills:
   - title: "Language"
     items:
       - Bahasa Indonesia (Native)
-      - English (IELTS 7.0)
+      - "English (IELTS 7.0)"
 
   - title: "Hard Skill"
     items:
@@ -71,7 +71,7 @@ skills:
       - PostgreSQL
       - MySQL
       - NoSQL
-  - title: Misc
+  - title: Framework & Misc
     items:
       - React
       - NestJS

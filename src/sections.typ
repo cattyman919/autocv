@@ -47,12 +47,51 @@
   <<- end >>
 ]
 
+// #let certificates = [
+//   == Certificates
+//   <<- range .General.Certifications >>
+//   - (*<< .Year >>*) << .Name >>
+//   <<- end >>
+//
+// ]
+
 #let certificates = [
   == Certificates
-  <<- range .General.Certifications >>
-  - (*<< .Year >>*) << .Name >>
-  <<- end >>
+
+  #set text(size: 0.9em)
+  // #set text(size: 1.0em)
+
+  #grid(
+    columns: (1fr, 1fr), // Creates two equal-width columns
+    row-gutter: 0.75em,  // Space between rows
+    column-gutter: 1em,  // Space between columns
+    <<- range .General.Certifications >>
+    [- (*<< .Year >>*) << .Name >>],
+    <<- end >>
+  )
 ]
+
+// #let certificates = [
+//   == Certificates
+//
+//   // Turn off justification just for this block
+//   #set par(justify: false)
+//
+//   #(
+//     <<- range .General.Certifications >>
+//     [(*<< .Year >>*) << .Name >>],
+//     <<- end >>
+//   ).join([ #h(0.4em) | #h(0.4em) ]) // Using a clean vertical bar instead of a heavy bullet
+// ]
+
+// #let certificates = [
+//   == Certificates
+//   #(
+//     <<- range .General.Certifications >>
+//     [(*<< .Year >>*) << .Name >>],
+//     <<- end >>
+//   ).join([ #h(0.5em) $bullet$ #h(0.5em) ])
+// ]
 
 #let awards = [
   == Awards
