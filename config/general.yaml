@@ -13,6 +13,8 @@ personal_info:
   github: cattyman919
   profile_pic: profile.jpg
 
+description: "CV General Description"
+
 research_interests:
   # Database
   # - Cloud Computing and Cloud Infrastructure
