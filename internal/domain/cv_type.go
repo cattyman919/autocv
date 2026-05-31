@@ -4,6 +4,7 @@ type Layout string
 
 const (
 	LayoutExperiences  Layout = "experiences"
+	LayoutDescription  Layout = "description"
 	LayoutEducations   Layout = "educations"
 	LayoutSkills       Layout = "skills"
 	LayoutCertificates Layout = "certificates"
@@ -30,6 +31,7 @@ type Project struct {
 type CVType struct {
 	Type        string
 	Layouts     []Layout     `yaml:"layout"`
+	Description string       `yaml:"description"`
 	Projects    []Project    `yaml:"projects"`
 	Experiences []Experience `yaml:"experiences"`
 }

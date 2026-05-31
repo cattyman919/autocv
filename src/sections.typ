@@ -13,6 +13,17 @@
   ]
 }
 
+// Will use the specific CV type description if defined
+// Else just use the description from general config
+#let description = [
+  ==
+  <<- if .Description >>
+  << .Description >>
+  <<- else >>
+  << .General.Description >>
+  <<- end >>
+]
+
 #let projects = [
   == Projects
   <<- range .Projects >>

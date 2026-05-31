@@ -19,7 +19,9 @@
 
 // Dynamically render the document layout using Go's context
 <<- range .Layouts >>
-  <<- if eq . "experiences" >>
+  <<- if eq . "description" >>
+    #sections.description
+  <<- else if eq . "experiences" >>
     #sections.experiences
   <<- else if eq . "educations" >>
     #sections.educations

@@ -41,6 +41,7 @@ type SkillGroup struct {
 
 type CVGeneral struct {
 	PersonalInfo      PersonalInfo  `yaml:"personal_info"`
+	Description       string        `yaml:"description"`
 	ResearchInterests []string      `yaml:"research_interests"`
 	Skills            []SkillGroup  `yaml:"skills"`
 	Certifications    []Certificate `yaml:"certificates"`
