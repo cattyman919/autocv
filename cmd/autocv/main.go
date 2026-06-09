@@ -28,7 +28,7 @@ func initLogger() {
 func main() {
 	initLogger()
 
-	if _, err := exec.LookPath("typsts"); err != nil {
+	if _, err := exec.LookPath("typst"); err != nil {
 		slog.Error("Program `tyspt` compiler not found in $PATH")
 		fmt.Println("")
 		fmt.Println("Please install tyspt compiler first before running the program")
