@@ -173,7 +173,9 @@ The included GitHub Actions workflow (`.github/workflows/deploy.yaml`) triggers 
 
 ## License
 
-This project is open source. Feel free to fork and adapt it for your own resume needs.
+This project is licensed under the [MIT License](LICENSE).
+
+Feel free to fork and adapt it for your own resume needs.
 
 ---
 
