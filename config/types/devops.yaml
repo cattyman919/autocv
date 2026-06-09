@@ -1,0 +1,125 @@
+layout:
+  - experiences
+  - educations
+  - skills
+  - certificates
+  - awards
+  - projects
+
+experiences:
+  - company: XLSmart
+    location: Jakarta Selatan
+    role: Platform Engineer
+    dates: September 2025 - Present
+    job_type: Contract
+    points:
+      - "*Engineered* a high-concurrency *Go* tool to automate weekly End-of-Support (EOS) and capacity reporting across *~100 AWS accounts* and *~100 GCP projects*, *slashing manual report generation time from 45 minutes to under 3 minutes*."
+      - "*Built* a *Go* utility to *audit Kubernetes clusters* at scale, querying *EKS clusters* to gather *PodDisruptionBudget (PDB)* and *HPA* data for cross-team resilience analysis."
+      - "*Designed and implemented* key *Grafana* dashboards to centralize observability, visualizing *CPU/Memory* from multiple *Prometheus* datasources and tracking *AWS service capacity* (EC2, RDS, EKS)."
+      # - "*Investigated and resolved* a production *memory leak* in a microservice by performing deep-dive analysis and tracing using *Datadog* and *Kubernetes CLI* tools."
+      - "*Developed* 'Kluster-Compare', a *full-stack internal tool* (*Go* backend, *Next.js* frontend) to visualize and *diff Kubernetes manifests* between live clusters (*Rancher*) and GitOps states (*ArgoCD*), streamlining *Blue/Green deployment validation*."
+      # 2. Docker & CI/CD - From the Dockerfile optimization in logs
+      - "*Optimized container deployments* by implementing *multi-stage Docker builds* (using scratch/distroless images) for internal tooling, reducing image size and *hardening security posture* for Kubernetes deployments."
+
+      # 3. AMI & Karpenter Auditing - From logs regarding "AMI AL2 to AL3" and Karpenter checks
+      - "*Engineered* an automated *AMI compliance scanner* in *Go* to track *Amazon Linux 2 to 2023 migration* progress across *Karpenter* nodepools and *EKS Managed Node Groups* in *50+ AWS accounts*."
+
+      # 4. Grafana Automation - From 'grafana-healthcheck' code
+      # - "*Created* a *Grafana health-check automator* that validates *Prometheus datasource connectivity* via the *Grafana API*, ensuring high availability of observability dashboards for critical Telco applications."
+
+      # 5. Database Performance - From "Assessment RDS MyXL" logs
+      - "*Conducted deep-dive performance assessments* on *AWS RDS*, identifying bottlenecks and recommending *composite indexing strategies* that optimized query execution for high-volume transaction tables."
+
+      # 6. MS Graph Integration - From 'weekly_resource' Excel upload code
+      - "*Integrated internal audit tools* with *Microsoft Graph API* to automatically generate and upload formatted *Excel reports* to SharePoint, eliminating manual data entry for weekly capacity reviews."
+      # --- Operational Excellence & Automation ---
+      - "*Streamlined* operational reporting workflows by *automating data collection* from disparate cloud sources (AWS, GCP, K8s), significantly *reducing administrative overhead* for the Cloud Operations team."
+      - "*Refactored* legacy automation scripts into modular *Go packages*, improving *code maintainability*, error handling, and enabling easier collaboration within the engineering team."
+      - "*Orchestrated* the periodic patching and upgrade cycles for *EKS node groups*, ensuring compliance with *security standards* by migrating workloads from *Amazon Linux 2 to AL3*."
+
+      # --- Cloud Security & Governance ---
+      # - "*Enhanced cloud security posture* by developing custom audit tools to detect exposed *Security Groups*, unencrypted *EBS volumes*, and *WAF* misconfigurations across a multi-account environment."
+      # - "*Strengthened* access control mechanisms by implementing *AssumeRole* patterns in automation tools, removing the need for static long-lived credentials in scripts."
+
+      # --- Cost Optimization ---
+      - "*Led cost-optimization initiatives* by building automated scanners to identify *underutilized EC2 instances* and detached *EBS volumes*, facilitating data-driven resource rightsizing decisions."
+
+    # --- Kubernetes & Infrastructure Management ---
+    # - "*Managed and maintained* Kubernetes infrastructure health, ensuring configuration consistency between *Blue/Green environments* via *ArgoCD* and *Rancher*."
+    # - "*Improved system observability* by consolidating *Prometheus* metrics into unified *Grafana* dashboards, providing real-time visibility into *cluster health* and resource capacity planning."
+
+  - company: Superbank
+    location: Jakarta Selatan
+    role: Technical Support
+    dates: December 2024 - June 2025
+    job_type: Internship
+    points:
+      - "*Managed end-to-end deployment* of vendor-provided scripts across *AWS EC2* (Dev/Staging) via *S3 bucket integration*, *WinSCP* file transfers, and *XML configuration adjustments*."
+      - "*Automated deployment workflows* by developing a *PowerShell script* to extract ZIP files and *configuration for deployment processes*, *reducing manual effort by 40%* and accelerating deployment cycles."
+      - "*Resolved production incidents* (e.g., CPU spikes, SQL query bottlenecks) by acting as a technical liaison, *analyzing root causes*, and *escalating issues* via *Jira tickets* to cross-functional teams."
+
+  - company: PT XL Axiata Tbk
+    location: Jakarta Selatan
+    role: "Fixed Connectivity, ICT & Cloud"
+    dates: February 2024 - June 2024
+    job_type: Internship
+    points:
+      - "Conducted *comprehensive market research* and *data scraping* using *Python*, *BeautifulSoup*, and *Pandas* to identify *growth opportunities* and assess the competitive landscape for satellite products."
+      - "Presented *data-driven findings* and *strategic recommendations* to mentors and senior management to support *informed business strategy* and *product development*."
+      - "Collaborated closely with *cross-functional teams* to ensure timely completion of tasks and seamless *integration of research insights* into project outcomes."
+
+  - company: PT Bank Victoria International
+    location: Jakarta Selatan
+    role: Fullstack Web Developer
+    dates: September 2023 - November 2023
+    job_type: Internship
+    points:
+      - "Developed *dynamic journal booking tables* on the frontend with *Flutter*, integrating advanced *filtering* (by date and booking type), *pagination*, and *soft deletion* functionalities."
+      - "*Integrated the Flutter frontend with backend APIs built in NestJS* and maintained data consistency with *MySQL*, ensuring accurate real-time accounting records."
+      - "Executed *targeted database queries* to correct and optimize data integrity, working in close collaboration with teams to align front-end displays with updated backend data."
+
+  - company: MileApp
+    location: Jakarta Barat
+    role: Frontend Web Developer
+    dates: September 2022 - October 2022
+    job_type: Internship
+    points:
+      - "*Rebuilt and redesigned* critical web pages (*landing, login, and registration*) from scratch using *React* and *styled-components*, contributing to a major UI overhaul aimed at *improving user experience and performance* for field agents and administrators."
+      - "Collaborated remotely with supervisors to integrate the new *React-based frontend* with the platform’s evolving product direction, *replacing legacy code with scalable, maintainable components*."
+
+projects:
+  - name: AutoCV
+    github: https://github.com/cattyman919/resume
+    github_handle: cattyman919/resume
+    description: "A dynamic CV generator that builds multiple tailored PDF resumes from a modular YAML data source using *Go* and *Typst*."
+    points:
+      - "Streamlined CV creation by developing a tool that generates *multiple customized PDF versions* from a modular data source split across three YAML files (`general`, `experiences`, `projects`), eliminating repetitive manual editing."
+      - "Engineered a *concurrent build process* using *Go's goroutines and waitgroups*, significantly cutting down generation time for multiple CVs."
+      - "Containerized the entire build environment with *Docker*, ensuring consistent and reproducible builds across different machines."
+
+  - name: DanceRTOS
+    github: https://github.com/cattyman919/AbsenceSystem
+    github_handle: cattyman919/AbsenceSystem
+    description: "An attendance system using FreeRTOS ESP32 and RFID, with a web server and Blynk integration for class and schedule management."
+    points:
+      - "Led the end-to-end development of the DanceRTOS attendance system, building both the *Flutter frontend* and *NestJS backend*."
+      - "Engineered a real-time student login system using *MQTT* and *RFID* on an *ESP32*, enabling secure and instantaneous attendance tracking."
+      - "Designed and implemented a dynamic class schedule and attendance table, providing lecturers with an organized and *real-time view of student presence*."
+
+  - name: HTTP Server
+    github: https://github.com/cattyman919/http
+    github_handle: cattyman919/http
+    description: "A custom HTTP server written in C that leverages low-level socket programming and polling to handle multiple client connections. It features dynamic routing via a binary search tree and simple HTTP parsing for flexible response handling."
+    points:
+      - "Engineered a *non-blocking, polling-based socket server* in *C* to handle multiple concurrent client connections efficiently."
+      - "Implemented a *custom HTTP parser and response generator*, enabling the server to handle a variety of requests and serve dynamic content."
+      - "Designed and implemented a *binary search tree for dynamic routing*, allowing for efficient and scalable URL-to-file mapping."
+
+  - name: Home Server
+    github: null
+    github_handle: null
+    description: "Dell OptiPlex 7050 running Debian as the Operating System used for my personal custom server. It currently provides services such as Portainer, Jellyfin, CasaOS, Samba Server, SIP Server, and also used as a backup for my files. Connected remotely using Tailscale."
+    points:
+      - "Deployed and manage a suite of services including *Jellyfin for media streaming*, *Portainer for Docker container management*, and an *Asterisk SIP server for home VoIP*."
+      - "Configured core network services, including *Samba for local file sharing*, *nginx as a reverse proxy* for simplified service access, and implemented *fail2ban and firewalld* for enhanced security."
+      - "Established a robust data management and remote access strategy using *rsync for automated backups* and *Tailscale* for secure, seamless access to the entire home network from any location."

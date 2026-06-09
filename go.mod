@@ -1,5 +1,5 @@
-module resume
+module github.com/cattyman919/autocv
 
-go 1.24.4
+go 1.26
 
-require gopkg.in/yaml.v3 v3.0.1 // direct
+require github.com/goccy/go-yaml v1.19.2

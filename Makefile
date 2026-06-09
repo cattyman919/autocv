@@ -1,50 +1,14 @@
-OS = linux
-RM = rm -rf
-TARGET := bin/cv_builder
-IMAGE_NAME := resume-generator
+.PHONY: watch clean all
 
-.PHONY: all run run_debug docker clean build
+# Directory for output files
+OUT_DIR = out
 
-all: $(TARGET)
-	@echo "Running application..."
-	./$(TARGET)
+all: run
 
-build:
-	mkdir -p bin
-	@echo "Building $(TARGET)..."
-	CGO_ENABLED=0 GOOS=$(OS) go build -a -installsuffix cgo -o ./$(TARGET) ./cmd/resume/main.go
+.PHONY: all run
 
-docker:
-	@# It checks if the output of 'docker images -q' is empty (-z).
-	@if [ -z "$(shell docker images -q $(IMAGE_NAME))" ]; then \
-		echo "Image '$(IMAGE_NAME)' not found. Building..."; \
-		docker build -t $(IMAGE_NAME) .; \
-	else \
-		echo "Image '$(IMAGE_NAME)' found. Skipping build."; \
-	fi
-	@echo "Running Docker container..."
-	docker run --rm \
-		-u "$(shell id -u):$(shell id -g)" \
-		-v "./:/app" \
-		$(IMAGE_NAME)
-
-# if you have pdflatex installed, you can use this target to generate a PDF
-# This process is much faster than using the Docker container
-# but requires a manually installed TexLive on your system
 run:
-	go run cmd/resume/main.go
-
-run_debug:
-	go run cmd/resume/main.go --debug
-
-run_benchmark:
-	go run cmd/resume/main.go --benchmark
+	go run ./cmd/autocv/
 
 clean:
-	@echo "Cleaning up..."
-	@chmod -R u+w go-modules .go-build-cache || true
-	$(RM) out
-	$(RM) cv
-	$(RM) bin
-	$(RM) go-modules
-	$(RM) .go-build-cache
+	rm -rf $(OUT_DIR) || rmdir /s /q $(OUT_DIR)
