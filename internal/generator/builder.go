@@ -2,11 +2,13 @@ package generator
 
 import (
 	"fmt"
-	"log"
+	"log/slog"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"text/template"
+
+	"github.com/ledongthuc/pdf"
 
 	"github.com/cattyman919/autocv/internal/domain"
 	"github.com/cattyman919/autocv/internal/utils"
@@ -18,7 +20,7 @@ const (
 
 func GenerateCVType(cvData *domain.CVTypeData, tmpl *template.Template) error {
 
-	log.Printf("Generating CV (%s)\n", cvData.Type)
+	slog.Info("Generating CV", "CV Type", cvData.Type)
 
 	cvTemplatePath := filepath.Join("src")
 	cvOutputPath := filepath.Join("build_cv", cvData.Type)
@@ -35,20 +37,20 @@ func GenerateCVType(cvData *domain.CVTypeData, tmpl *template.Template) error {
 		dirOutputPath := filepath.Dir(outputPath)
 		err := os.MkdirAll(dirOutputPath, FOLDER_PERMISSION)
 		if err != nil {
-			log.Printf("Error creating Directory %s: %v\n", dirOutputPath, err)
+			slog.Error("Error creating Directory", "Path", dirOutputPath, "Err", err)
 			continue
 		}
 
 		file, err := os.Create(outputPath)
 		if err != nil {
-			log.Printf("Error creating file %s: %v", outputPath, err)
+			slog.Error("Error creating file", "file", outputPath, "Err", err)
 			continue
 		}
 
 		// We use ExecuteTemplate, passing the base name.
 		err = tmpl.ExecuteTemplate(file, templateName, cvData)
 		if err != nil {
-			log.Printf("Error executing template %s: %v", templateName, err)
+			slog.Error("Error executing template", "Template", templateName, "Err", err)
 			file.Close()
 			continue
 		}
@@ -85,7 +87,29 @@ func GeneratePDF(cvData *domain.CVTypeData) error {
 		return fmt.Errorf("Failed to execute '%s': %w", program, err)
 	}
 
-	log.Printf("Generated CV %s.pdf\n", targetPDF)
+	f, r, err := pdf.Open(outputPath)
+	if err != nil {
+		slog.Warn("Failed to open PDF")
+		return nil
+	}
+	defer f.Close()
+
+	totalPages := r.NumPage()
+
+	// check if its defined or not first
+	if cvData.CVType.MaxPages != nil && totalPages > *cvData.CVType.MaxPages {
+		slog.Warn(
+			"PDF has more pages than max value",
+			"CV",
+			cvData.CVType.Type,
+			"Total Pages",
+			totalPages,
+			"Max Pages Value",
+			*cvData.CVType.MaxPages,
+		)
+	}
+
+	slog.Info("Generated CV", "Target PDF", targetPDF)
 
 	return nil
 }

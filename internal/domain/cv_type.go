@@ -29,7 +29,10 @@ type Project struct {
 }
 
 type CVType struct {
-	Type        string
+	// Type name taken from the filename
+	Type string
+	// Will give a warning if the generated PDF has more than MaxPages
+	MaxPages    *int         `yaml:"max_pages,omitempty"`
 	Layouts     []Layout     `yaml:"layout"`
 	Description string       `yaml:"description"`
 	Projects    []Project    `yaml:"projects"`

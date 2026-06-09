@@ -124,7 +124,7 @@ func parseConfigs() (*CVConfig, error) {
 		cvTypesCfg = append(cvTypesCfg, res.cvType)
 	}
 
-	slog.Info("Parse Config Success")
+	slog.Debug("Parse Config Success")
 
 	return &CVConfig{
 		settingsCfg: settingsCfg,
