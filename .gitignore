@@ -11,3 +11,4 @@ build_cv
 /go-modules
 /.go-build-cache
 watch
+out/
