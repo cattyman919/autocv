@@ -6,6 +6,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strings"
 	"text/template"
 
 	"github.com/ledongthuc/pdf"
@@ -68,6 +69,10 @@ func GeneratePDF(cvData *domain.CVTypeData) error {
 	cvPath := filepath.Join("build_cv", cvData.Type, "main.typ")
 	outputPath := filepath.Join("out", targetPDF)
 
+	if err := os.Mkdir("out", 0755); err != nil && !strings.Contains(err.Error(), "exists") {
+		return fmt.Errorf("failed to create output directory: %w", err)
+	}
+
 	program := "typst"
 	args := []string{
 		"compile",
@@ -83,8 +88,10 @@ func GeneratePDF(cvData *domain.CVTypeData) error {
 	// cmd.Stdout = os.Stdout
 	// cmd.Stderr = os.Stderr
 
-	if err := cmd.Run(); err != nil {
-		return fmt.Errorf("Failed to execute '%s': %w", program, err)
+	output, err := cmd.CombinedOutput()
+	if err != nil {
+		// Now we include the actual output from typst in your error message
+		return fmt.Errorf("failed to execute '%s': %w\nTypst Output:\n%s", program, err, string(output))
 	}
 
 	f, r, err := pdf.Open(outputPath)
