@@ -1,6 +1,5 @@
 settings:
   font: "Charter"
-  # font: "New Computer Modern"
 
 personal_info:
   name: Seno Pamungkas Rahman
@@ -13,84 +12,45 @@ personal_info:
   github: cattyman919
   profile_pic: profile.jpg
 
-description: "CV General Description"
-
-research_interests:
-  # Database
-  # - Cloud Computing and Cloud Infrastructure
-  # - Query Processing and Performance Optimization in Distributed Systems
-  # - Cloud Databases and Large-Scale Data Management
-  # - Data Privacy and Security in Cloud-Based Systems
-
-  # Shuting
-  - Intelligent Software Testing and Automated Verification
-  - Optimization of Distributed Algorithms and Protocols
-  - Mobile Commerce Systems and Application Development
-  - Software Reliability and Performance Engineering
-
 skills:
-  - title: "Language"
-    items:
-      - Bahasa Indonesia (Native)
-      - "English (IELTS 7.0)"
-
-  - title: "Hard Skill"
-    items:
-      - Database Systems
-      - Web Development
-      - Fullstack Engineer
-      - Networking
-      - Internet of Things
-      - Machine Learning
-
-  - title: "Soft Skills"
-    items:
-      - Teamwork
-      - Communication
-      - Adaptability
-      - Responsibility
-      - Creativity
-      - Discipline
-      - Honesty
-
   - title: "Programming Languages"
     items:
-      - C
-      - "C#"
-      - C++
       - Go
-      - Javascript
-      - HTML
-      - CSS
-      - Python
-      - Typescript
-      - Java
-      - PHP
-      - Dart
       - Rust
-  - title: "Database"
+      - TypeScript
+      - Python
+      - C++
+      - Java
+      - C
+  - title: "Cloud & DevOps"
+    items:
+      - AWS
+      - GCP
+      - Kubernetes
+      - Docker
+      - Terraform
+      - Linux
+      - Git
+  - title: "Web Frameworks"
+    items:
+      - React
+      - Next.js
+      - NestJS
+      - Spring Boot
+      - Flutter
+  - title: "Databases"
     items:
       - PostgreSQL
       - MySQL
       - NoSQL
-  - title: Framework & Misc
+  - title: "Languages"
     items:
-      - React
-      - NestJS
-      - NextJS
-      - Flutter
-      - Spring Boot
-      - ExpressJs
-      - Docker
-      - Tailwind CSS
-      - Git
-      - Linux
+      - Bahasa Indonesia (Native)
+      - English (IELTS 7.0)
 
 certificates:
   - year: "2025"
     name: "Red Hat System Administration I & II (RH134 - RHA) - Ver. 9.3"
-  # - year: "2024"
-  #   name: "AWS Knowledge: Cloud Essentials"
   - year: "2023"
     name: "CCNA: Enterprise Networking, Security, and Automation"
   - year: "2023"
