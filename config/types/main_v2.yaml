@@ -1,8 +1,5 @@
-# this field will give warning if the generated PDF has more that max_pages
-# it will still build successfully
 max_pages: 2
 
-# can defined description here too now
 layout:
   - description
   - educations
@@ -12,7 +9,7 @@ layout:
   - awards
   - projects
 
-description: "CV Specific Description"
+description: "*Platform Engineer* specializing in *Cloud Orchestration*, *Kubernetes*, and *infrastructure automation*. Proficient in *Go*, *Rust*, and *TypeScript* with a track record of building *high-concurrency backend tools*, optimizing cloud resources across *AWS* and *GCP*, and contributing to *open-source ecosystems*. Passionate about enhancing *system observability*, implementing *robust deployment workflows*, and *scaling operations*."
 
 experiences:
   - company: XLSmart
@@ -27,10 +24,6 @@ experiences:
       - "*Developed* 'Kluster-Compare', a *full-stack internal tool* (*Go* backend, *Next.js* frontend) to visualize and *diff Kubernetes manifests* between live clusters (*Rancher*) and GitOps states (*ArgoCD*), streamlining *Blue/Green deployment validation*."
       - "*Optimized container deployments* by implementing *multi-stage Docker builds* (using scratch/distroless images) for internal tooling, reducing image size and *hardening security posture* for Kubernetes deployments."
       - "*Engineered* an automated *AMI compliance scanner* in *Go* to track *Amazon Linux 2 to 2023 migration* progress across *Karpenter* nodepools and *EKS Managed Node Groups* in *50+ AWS accounts*."
-      - "*Conducted deep-dive performance assessments* on *AWS RDS*, identifying bottlenecks and recommending *composite indexing strategies* that optimized query execution for high-volume transaction tables."
-      - "*Integrated internal audit tools* with *Microsoft Graph API* to automatically generate and upload formatted *Excel reports* to SharePoint, eliminating manual data entry for weekly capacity reviews."
-      # - "*Streamlined* operational reporting workflows by *automating data collection* from disparate cloud sources (AWS, GCP, K8s), significantly *reducing administrative overhead* for the Cloud Operations team."
-      # - "*Orchestrated* the periodic patching and upgrade cycles for *EKS node groups*, ensuring compliance with *security standards* by migrating workloads from *Amazon Linux 2 to AL3*."
       - "*Led cost-optimization initiatives* by building automated scanners to identify *underutilized EC2 instances* and detached *EBS volumes*, facilitating data-driven resource rightsizing decisions."
 
   - company: Superbank
@@ -39,9 +32,9 @@ experiences:
     dates: December 2024 - June 2025
     job_type: Internship
     points:
-      - "*Managed end-to-end deployment* of vendor-provided scripts across *AWS EC2* (Dev/Staging) via *S3 bucket integration*, *WinSCP* file transfers, and *XML configuration adjustments*."
       - "*Automated deployment workflows* by developing a *PowerShell script* to extract ZIP files and *configuration for deployment processes*, *reducing manual effort by 40%* and accelerating deployment cycles."
       - "*Resolved production incidents* (e.g., CPU spikes, SQL query bottlenecks) by acting as a technical liaison, *analyzing root causes*, and *escalating issues* via *Jira tickets* to cross-functional teams."
+
   - company: PT XL Axiata Tbk
     location: Jakarta Selatan
     role: "Fixed Connectivity, ICT & Cloud"
@@ -50,7 +43,6 @@ experiences:
     points:
       - "Conducted *comprehensive market research* and *data scraping* using *Python*, *BeautifulSoup*, and *Pandas* to identify *growth opportunities* and assess the competitive landscape for satellite products."
       - "Presented *data-driven findings* and *strategic recommendations* to mentors and senior management to support *informed business strategy* and *product development*."
-      - "Collaborated closely with *cross-functional teams* to ensure timely completion of tasks and seamless *integration of research insights* into project outcomes."
 
   - company: PT Bank Victoria International
     location: Jakarta Selatan
@@ -60,23 +52,29 @@ experiences:
     points:
       - "Developed *dynamic journal booking tables* on the frontend with *Flutter*, integrating advanced *filtering* (by date and booking type), *pagination*, and *soft deletion* functionalities."
       - "*Integrated the Flutter frontend with backend APIs built in NestJS* and maintained data consistency with *MySQL*, ensuring accurate real-time accounting records."
-      - "Executed *targeted database queries* to correct and optimize data integrity, working in close collaboration with teams to align front-end displays with updated backend data."
 
 projects:
+  - name: Terraform Provider TencentCloud (Open Source)
+    github: https://github.com/tencentcloudstack/terraform-provider-tencentcloud/pull/4211
+    github_handle: tencentcloudstack/terraform-provider-tencentcloud
+    description: "Contributed a fix to the official *Terraform Provider for TencentCloud*, addressing an *API pagination bug* in *resource state management*."
+    points:
+      - "*Identified and resolved* a resource pagination issue by updating the *Go*-based provider logic to *correctly handle and aggregate paginated API responses*."
+      - "*Engineered a local patch* to unblock immediate *Infrastructure-as-Code (IaC)* deployments and submitted the solution as an *active pull request* to the *upstream open-source repository*."
+
   - name: Yazi (Open Source)
     github: https://github.com/sxyazi/yazi/pull/3121
     github_handle: sxyazi/yazi
     description: "Contributed to *Yazi*, a lightning-fast terminal file manager written in *Rust*, by implementing real-time progress visualization for I/O operations."
     points:
       - "Developed a *real-time task progression system* for file copying operations, replacing static status messages with a visual progress bar, byte transfer metrics, and file counts."
-      - "Engineered the solution by modifying the core *Rust* task logic (`yazi-core`) to track I/O states and updating the *Lua*-based UI components (`yazi-plugin`) for rendering."
       - "Navigated a large, complex open-source codebase to implement the feature, successfully merging the contribution to enhance user feedback for long-running operations."
 
-  - name: DanceRTOS
-    github: https://github.com/cattyman919/AbsenceSystem
-    github_handle: cattyman919/AbsenceSystem
-    description: "An attendance system using FreeRTOS ESP32 and RFID, with a web server and Blynk integration for class and schedule management."
+  - name: AutoCV
+    github: https://github.com/cattyman919/resume
+    github_handle: cattyman919/resume
+    description: "A dynamic CV generator that builds multiple tailored PDF resumes from a modular YAML data source using *Go* and *Typst*."
     points:
-      - "Designed and implemented a dynamic class schedule and attendance table, providing lecturers with an organized and *real-time view of student presence*."
-      - "Led the end-to-end development of the DanceRTOS attendance system, building both the *Flutter frontend* and *NestJS backend*."
-      - "Engineered a real-time student login system using *MQTT* and *RFID* on an *ESP32*, enabling secure and instantaneous attendance tracking."
+      - "Streamlined CV creation by developing a tool that generates *multiple customized PDF versions* from a modular data source split across three YAML files, eliminating repetitive manual editing."
+      - "Engineered a *concurrent build process* using *Go's goroutines and waitgroups*, significantly cutting down generation time for multiple CVs."
+      - "Containerized the entire build environment with *Docker*, ensuring consistent and reproducible builds across different machines."
